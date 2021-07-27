@@ -1,8 +1,14 @@
 var submitButton = document.querySelector("#submit-todo");
 var input = document.querySelector("input");
 var parentDiv = document.querySelector("#parent-div")
+var signUpButton = document.querySelector("#sign-up");
+var signInButton = document.querySelector("#sign-in");
 
 function testButton() {
+    if (input.value === '' || input.value == null || input.value == "undefined") {
+        return false;
+        // https://stackoverflow.com/questions/43074658/stop-form-whitespace-when-user-pressing-submit
+    }
     let div = document.createElement("div");
     let p = document.createElement("p");
     p = input.value;
@@ -12,10 +18,10 @@ function testButton() {
 }
 
 submitButton.addEventListener("click", testButton)
-// submitButton.addEventListener("keyup", function(e) {
-//     if (e.keyCode === 13) {
-//         e.preventDefault();
-//         testButton();
-        
-//     }
-// }, false);
+input.addEventListener("keyup", function(e) {
+    // https://www.tutorialspoint.com/javascript-submit-textbox-on-pressing-enter
+    if (e.code === 'Enter') {
+        e.preventDefault();
+        testButton();
+    }
+}, false);
