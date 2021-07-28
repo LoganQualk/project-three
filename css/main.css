@@ -34,7 +34,23 @@ body {
 
 .navbar a {
     position: relative;
-  }
+}
+
+.no-margin {
+    margin: 0;
+}
+
+li {
+    margin-bottom: .5rem;
+}
+
+.margin-left-1rem {
+    margin-left: 1rem;
+}
+
+.flex {
+    display: flex;
+}
 
 .justify-center {
     justify-content: center;
@@ -42,4 +58,10 @@ body {
 
 .align-center {
     align-items: center;
+}
+
+.mark-complete-button {
+    background: #04aa6d;
+    color: white;
+    font-weight: bold;
 }
