@@ -14,13 +14,16 @@
         <img src="./images/mhw-logo.ico" alt="Monster Hunter: World Icon"/>
       </a> -->
       <ul>
-        <li class="no-margin"><a href="./sign-up/index.html"><button id="sign-up" class="btn btn-info">Sign-Up</button></a></li> 
-        <li class="no-margin"><a href="./sign-in/index.html"><button id="sign-in" class="btn btn-success">Sign-In</button></a></li>
+        <!-- <li class="no-margin"><a href="./sign-up/index.html"><button id="sign-up" class="btn btn-info">Sign-Up</button></a></li>  -->
+        <li class="no-margin"><select name="" id="select-user">
+          <option value="">All Users</option>
+        </select></li>
       </ul>
     </nav>
     <div class="flex justify-center align-center">
       <ul id="parent-ul" class="input-group input-group-lg">
-        <input type="text" placeholder="Add new to-do item">
+        <input type="text" placeholder="Add new to-do item" id="to-do-item">
+        <input type="text" placeholder="Name to add to-do item to" id="user-name">
         <button id="submit-todo" class="btn">Submit</button>
       </ul>
     </div>
