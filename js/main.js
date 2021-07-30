@@ -58,8 +58,18 @@ function createListItem() {
     parentUl.insertBefore(li, parentUl.firstChild);
     butt.addEventListener("click", markAsComplete);
     butt.style.marginLeft = "1rem";
-    selectUser.options[selectUser.options.length] = new Option(userName.value, userName.value);
+    if (!checkIfUserNameExists(userName.value)) {
+        selectUser.options[selectUser.options.length] = new Option(userName.value, userName.value);
+    }
+    let value = newToDo;
+    myStorage.setItem("value", value);
+    console.log(myStorage);
     i++;
+}
+
+function checkIfUserNameExists(userName) {
+    let options = Array.apply(null, selectUser.options).map((option) => option.value);
+    return options.includes(userName);
 }
 
 function markAsComplete() {
@@ -70,6 +80,33 @@ function markAsComplete() {
     console.log(todos[this.parentElement.dataset.id].complete);
     // this.parentElement.remove();
 }
+
+function updateList() {
+    console.log(todos.filter((todo) => todo.userid === selectUser.value || selectUser.value === ""));
+    while (parentUl.firstChild) {
+        parentUl.removeChild(parentUl.lastChild);
+    }
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].userid === selectUser.value) {
+            let li = document.createElement("li");
+            let p = document.createElement("p");
+            let butt = document.createElement("button");
+            let underUser = document.createElement("p");
+            underUser = todos[i].userid;
+            p = todos[i].toDo;
+            butt.innerText = "Mark as complete!";
+            butt.setAttribute("class", "mark-complete-button");
+            li.append("To Do: ", p, butt, underUser);
+            li.dataset.id = i;
+            parentUl.appendChild(li);
+            parentUl.insertBefore(li, parentUl.firstChild);
+            butt.addEventListener("click", markAsComplete);
+            butt.style.marginLeft = "1rem";
+        }
+    }
+}
+
+selectUser.addEventListener("change", updateList);
 
 submitButton.addEventListener("click", createListItem);
 input.addEventListener("keyup", function(e) {
