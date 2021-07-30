@@ -5,21 +5,19 @@ var parentUl = document.querySelector("#parent-ul")
 var signUpButton = document.querySelector("#sign-up");
 var selectUser = document.querySelector("#select-user");
 let myStorage = window.localStorage;
-let todos = JSON.parse(myStorage.getItem("todos"));
+let todos = (myStorage.getItem("todos") !== null ? JSON.parse(myStorage.getItem("todos")) : []);
 let i = 0;
 
 window.onload = function () {
-    for (let i = 0; i < todos.length; i++) {
-        let userid = todos[i].userid;
-        if (!checkIfUserNameExists(userid)) {
-            selectUser.options[selectUser.options.length] = new Option(userid, userid);
+    if (myStorage.getItem("todos") !== null) {
+        for (let i = 0; i < todos.length; i++) {
+            let userid = todos[i].userid;
+            if (!checkIfUserNameExists(userid)) {
+                selectUser.options[selectUser.options.length] = new Option(userid, userid);
+            }
         }
-        // let isComplete = todos[i].complete;
-        // if (isComplete) {
-        //     markAsComplete();
-        // }
+        showToDos();
     }
-    showToDos();
 }
 // let j = 0; // user id
 
