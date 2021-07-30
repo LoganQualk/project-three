@@ -19,37 +19,11 @@ window.onload = function () {
         showToDos();
     }
 }
-// why is everything broken
-// let j = 0; // user id
-
-// function submitToDo() {
-//     if (input.value === '' || input.value == null || input.value == "undefined") {
-//         return false;
-//         // https://stackoverflow.com/questions/43074658/stop-form-whitespace-when-user-pressing-submit
-//     }
-//     let li = document.createElement("li");
-//     let p = document.createElement("p");
-//     let butt = document.createElement("button");
-//     p = input.value;
-//     butt.innerText = "Mark as complete!";
-//     butt.setAttribute("class", "mark-complete-button");
-//     // butt.setAttribute("id", i);
-//     butt.dataset.id = i;
-//     li.append("To-Do: ", p, butt);
-//     // div.setAttribute("id", i);
-//     li.dataset.id = i;
-//     i++;
-//     parentUl.appendChild(li);
-//     parentUl.insertBefore(li, parentUl.firstChild);
-//     butt.addEventListener("click", markAsComplete);
-//     butt.style.marginLeft = "1rem";
-//     myStorage.setItem(p, user[j]);
-// }
-
-// TO DO
-// Maybe make the to-do list submission require a user to submit it under instead of a "log-in" system
 
 function createListItem() {
+    if (input.value === '' || input.value == null || input.value == 'undefined') {
+        return false;
+    }
     let newToDo = input.value;
     let addedToUser = userName.value;
     let temp = {
@@ -76,6 +50,8 @@ function createListItem() {
         selectUser.options[selectUser.options.length] = new Option(userName.value, userName.value);
     }
     myStorage.setItem("todos", JSON.stringify(todos));
+    input.value = null;
+    userName.value = null;
     i++;
 }
 
