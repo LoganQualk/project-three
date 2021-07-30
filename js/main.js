@@ -58,6 +58,7 @@ function createListItem() {
     parentUl.insertBefore(li, parentUl.firstChild);
     butt.addEventListener("click", markAsComplete);
     butt.style.marginLeft = "1rem";
+    selectUser.options[selectUser.options.length] = new Option(userName.value, userName.value);
     i++;
 }
 
