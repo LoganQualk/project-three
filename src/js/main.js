@@ -61,8 +61,8 @@ function createListItem() {
     if (!checkIfUserNameExists(userName.value)) {
         selectUser.options[selectUser.options.length] = new Option(userName.value, userName.value);
     }
-    let value = newToDo;
-    myStorage.setItem("value", value);
+    myStorage.setItem("todos", JSON.stringify(todos));
+    showToDos();
     console.log(myStorage);
     i++;
 }
@@ -103,6 +103,26 @@ function updateList() {
             butt.addEventListener("click", markAsComplete);
             butt.style.marginLeft = "1rem";
         }
+    }
+}
+
+function showToDos() {
+    let todos = myStorage.getItem("todos");
+    if (todos) {
+        let li = document.createElement("li");
+        let p = document.createElement("p");
+        let butt = document.createElement("button");
+        let underUser = document.createElement("p");
+        underUser = todos[i].userid;
+        p = todos[i].toDo;
+        butt.innerText = "Mark as complete!";
+        butt.setAttribute("class", "mark-complete-button");
+        li.append("To Do: ", p, butt, underUser);
+        li.dataset.id = i;
+        parentUl.appendChild(li);
+        parentUl.insertBefore(li, parentUl.firstChild);
+        butt.addEventListener("click", markAsComplete);
+        butt.style.marginLeft = "1rem";
     }
 }
 
