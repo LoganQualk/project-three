@@ -19,6 +19,7 @@ window.onload = function () {
         showToDos();
     }
 }
+// why is everything broken
 // let j = 0; // user id
 
 // function submitToDo() {
