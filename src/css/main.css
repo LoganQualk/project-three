@@ -1,79 +1,119 @@
 body {
-    margin: 0;
-    line-height: 1.5;
-    background: #F5E2E4;
+  margin: 0;
+  line-height: 1.5;
+  background: #f5e2e4;
 }
 
 .navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1rem;
-    box-shadow: 0 0 .25rem 0 rgba(0, 0, 0, .2);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: white;
 }
 
 .navbar ul {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 .navbar li {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .navbar li a {
-    text-decoration: none;
-    font-weight: bold;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .navbar a {
-    position: relative;
+  position: relative;
 }
 
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
 .no-margin {
-    margin: 0;
+  margin: 0;
 }
 
 li {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .margin-left-1rem {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .flex {
-    display: flex;
+  display: flex;
+  font-size: 15pt;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 .justify-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .align-center {
-    align-items: center;
+  align-items: center;
+}
+
+#parent-ul.input-group {
+  background: #ddd;
+  border: solid 2px;
+  border-color: #ddd;
+  border-radius: 8px;
+  padding-right: 15px;
 }
 
 .mark-complete-button {
-    background: #04aa6d;
-    color: white;
-    font-weight: bold;
+  background: #04aa6d;
+  color: white;
+  font-weight: bold;
+}
+
+.mark-complete-button:hover {
+  background: #1d04aa;
+  color: white;
+  font-weight: bold;
+}
+
+.select-user {
+  height: 40px;
+  background-color: #f5e2e4;
+  border: dotted 5px;
+  border-radius: 5px;
+}
+
+.to-do-item {
+  height: 25px;
+  margin-left: 10px;
+}
+
+.btn-submit {
+  height: 30px;
+  margin-left: 10px;
+}
+.btn-submit:hover {
+  height: 30px;
+  margin-left: 10px;
+  background-color: #1d04aa;
+  color: white;
 }
